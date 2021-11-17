@@ -1,15 +1,14 @@
-const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet","purple", "pink", "brown","beige", "lime","magenta","cyan"];
+const btn = document.getElementById("btn");
+const color = document.querySelector(".color");
 
-const getColors = () => {
-    return colors[Math.floor(Math.random()*colors.length)];
-};
+btn.addEventListener("click", function () {
+  const randomNumber = getRandomNumber();
 
-const button = document.querySelector(".btn");
-const section = document.querySelector(".color-random");
-const colorContainer = document.querySelector(".color");
+  document.body.style.backgroundColor = colors[randomNumber];
+  color.textContent = colors[randomNumber];
+});
 
-button.addEventListener("click", ()=> {
-    const color = getColors();
-    section.style.backgroundColor = color;
-    colorContainer.innerHTML = color;
-})
+function getRandomNumber() {
+  return Math.floor(Math.random() * colors.length);
+}
